@@ -13,7 +13,28 @@ The four implemented objects and their parameters are:
 
 ## Getting started
 
-TODO
+```bash
+$ git clone https://github.com/nfejes/cag-geometry.git
+$ cd cag-geometry
+$ npm install
+```
+
+### Run tests
+```bash
+$ npm test
+```
+
+### Run example
+```bash
+$ cd ..
+$ echo "var geometry = require('./cag-geometry');
+> console.log(geometry.area.circle(1));
+> " > example.js
+$ $ ls
+cag-geometry  example.js
+$ node example.js 
+3.141592653589793
+```
 
 ## API
 The API for these functions are:
