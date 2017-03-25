@@ -42,14 +42,18 @@ describe("C.A.G Geometry Calculator:", function() {
         });
         it("total (bad call)", function() {
             var total = geometry.circumference.total;
-            expect(total([
-                { type:'rectangle', base:2, height:4 }, // ok
-                { type:'baloon',    base:3, height:4 }, // error
-            ])).to.throw(/unknown type/);
-            expect(total([
-                { type:'rectangle', base:2, height:4 }, // ok
-                { type:'triangle',  radius:3         }, // error
-            ])).to.throw(/missing parameter/);
+            expect(function() {
+                total([
+                  { type:'rectangle', base:2, height:4 }, // ok
+                  { type:'baloon',    base:3, height:4 }, // error
+                ]);
+            }).to.throw(/unknown type/);
+            expect(function() {
+                total([
+                  { type:'rectangle', base:2, height:4 }, // ok
+                  { type:'triangle',  radius:3         }, // error
+                ]);
+            }).to.throw(/missing parameter/);
         });
     });
 
@@ -94,14 +98,18 @@ describe("C.A.G Geometry Calculator:", function() {
         });
         it("total (bad call)", function() {
             var total = geometry.area.total;
-            expect(total([
-                { type:'rectangle', base:2, height:4 }, // ok
-                { type:'baloon',    base:3, height:4 }, // error
-            ])).to.throw(/unknown type/);
-            expect(total([
-                { type:'rectangle', base:2, height:4 }, // ok
-                { type:'triangle',  radius:3         }, // error
-            ])).to.throw(/missing parameter/);
+            expect(function() {
+                total([
+                  { type:'rectangle', base:2, height:4 }, // ok
+                  { type:'baloon',    base:3, height:4 }, // error
+                ]);
+            }).to.throw(/unknown type/);
+            expect(function() {
+                total([
+                  { type:'rectangle', base:2, height:4 }, // ok
+                  { type:'triangle',  radius:3         }, // error
+                ]);
+            }).to.throw(/missing parameter/);
         });
     });
 });
