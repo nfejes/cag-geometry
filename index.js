@@ -32,13 +32,21 @@ function setupSubmodule(formulas) {
 
     // Setup "total" function
     m.total = function(objects) {
-        var total = 0;
-        for (var obj in objects) {
+        var total = 0, num = objects.length;
+        for (var i = 0; i < num; i++) {
+            // Get object
+            var obj = objects[i];
+            if (!(obj.type in objectParameters))
+                throw Error('unknown type');
+
             // Build argument list
-            var type = objects[obj].type;
-            var args = objectParameters[type].map(x => objects[obj][x]);
+            var params = objectParameters[obj.type];
+            if (params.some(x => !(x in obj)))
+                throw Error('missing parameter');
+
             // Call implementation
-            total += formulas[type].apply(null,args);
+            var args = params.map(x => obj[x]);
+            total += formulas[obj.type].apply(null,args);
         }
         return total;
     }
