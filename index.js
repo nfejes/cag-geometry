@@ -35,8 +35,8 @@ function setupSubmodule(formulas) {
         var total = 0;
         for (var obj in objects) {
             // Build argument list
-            var type = obj.type;
-            var args = objectParameters[type].map(x => obj[x]);
+            var type = objects[obj].type;
+            var args = objectParameters[type].map(x => objects[obj][x]);
             // Call implementation
             total += formulas[type].apply(null,args);
         }
