@@ -19,7 +19,8 @@ $ cd cag-geometry
 $ npm install
 ```
 
-### Run tests
+### Running the tests
+The test scripts are located in `test/geometry.js`, and are run with the command
 ```bash
 $ npm test
 ```
@@ -30,7 +31,7 @@ $ cd ..
 $ echo "var geometry = require('./cag-geometry');
 > console.log(geometry.area.circle(1));
 > " > example.js
-$ $ ls
+$ ls
 cag-geometry  example.js
 $ node example.js 
 3.141592653589793
@@ -80,12 +81,4 @@ var val2 = geometry.area.triangle(3,4); // == 6
 
 // Circumference of rectangle
 var val3 = geometry.circumference.rectangle(3,4); // == 14
-```
-
-
-## Running the tests
-
-The test scripts are located in `test/geometry.js`, and are run with the command
-```bash
-$ npm test
 ```
